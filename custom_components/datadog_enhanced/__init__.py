@@ -72,11 +72,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: DatadogEnhancedConfigEnt
             f"domain:{event.data.get('domain')}",
         ]
 
-        # Add entity_type tag from device_class if available
+        # Add device_class tag from device_class if available
         if entity_id:
             state = hass.states.get(entity_id)
             if device_class := get_device_class_from_state(state):
-                tags.append(f"entity_type:{device_class}")
+                tags.append(f"device_class:{device_class}")
 
         entry.runtime_data.event(
             title="Home Assistant",
@@ -92,9 +92,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: DatadogEnhancedConfigEnt
         metric = f"{prefix}.{state.domain}"
         tags = [f"entity:{state.entity_id}"]
 
-        # Add entity_type tag from device_class if present in attributes
+        # Add device_class tag from device_class if present in attributes
         if device_class := get_device_class_from_state(state):
-            tags.append(f"entity_type:{device_class}")
+            tags.append(f"device_class:{device_class}")
 
         for key, value in state.attributes.items():
             if isinstance(value, (float, int, bool)):

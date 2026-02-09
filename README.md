@@ -6,9 +6,9 @@ Enhanced Datadog integration for Home Assistant with improved tagging support.
 
 This integration is based on the official Home Assistant Datadog integration, with the following enhancement:
 
-- **Device Class Tagging**: Automatically adds `entity_type` tags based on the entity's `device_class` attribute (e.g., `temperature`, `humidity`, `battery`)
+- **Device Class Tagging**: Automatically adds `device_class` tags based on the entity's `device_class` attribute (e.g., `temperature`, `humidity`, `battery`)
 - **Maintains Compatibility**: All original Datadog integration features remain intact
-- **Selective Tagging**: Only adds `entity_type` tag when `device_class` is present
+- **Selective Tagging**: Only adds `device_class` tag when `device_class` is present
 
 ## Example
 
@@ -25,7 +25,7 @@ Tags: entity:sensor.living_room_temperature
 Metric: hass.sensor
 Tags:
   - entity:sensor.living_room_temperature
-  - entity_type:temperature
+  - device_class:temperature
 ```
 
 This allows for better filtering and aggregation in Datadog dashboards by entity type across all your sensors.
@@ -73,7 +73,7 @@ Configuration is done through the Home Assistant UI with the same options as the
 
 ## Supported Entity Types
 
-The integration will add `entity_type` tags for any entity with a `device_class` attribute, including:
+The integration will add `device_class` tags for any entity with a `device_class` attribute, including:
 
 **Sensors:**
 - temperature, humidity, battery, power, energy

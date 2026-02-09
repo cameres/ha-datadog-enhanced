@@ -1,0 +1,12 @@
+{
+  "domain": "datadog_enhanced",
+  "name": "Datadog Enhanced",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/datadog_enhanced",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "loggers": ["datadog"],
+  "requirements": ["datadog==0.52.0"],
+  "version": "1.0.0"
+}
